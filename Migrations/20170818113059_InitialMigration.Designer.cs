@@ -11,7 +11,7 @@ using System;
 namespace coreauthtest.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20170818104010_InitialMigration")]
+    [Migration("20170818113059_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

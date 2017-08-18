@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using coreauthtest.Infrastructure;
 using coreauthtest.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +37,7 @@ namespace coreauthtest
             services.AddEntityFrameworkSqlite().AddDbContext<DataContext>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<DataContext>()
-                .AddDefaultTokenProviders();
+                .AddTokenProvider<TotpAuthTokenProvider>(nameof(TotpAuthTokenProvider));
 
             services.Configure<IdentityOptions>(options=>{
                 // Password settings
@@ -45,9 +46,7 @@ namespace coreauthtest
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-                //options.Tokens = new TokenOptions(){
-                //    AuthenticatorTokenProvider = 
-                //}
+                options.Tokens.AuthenticatorTokenProvider = nameof(TotpAuthTokenProvider);
             });
         }
 
