@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using coreauthtest.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
@@ -32,7 +33,7 @@ namespace coreauthtest
         {
             // Add framework services.
             services.AddMvc();
-            services.AddEntityFramework().AddEntityFrameworkSqlite().AddDbContext<DataContext>();
+            services.AddEntityFrameworkSqlite().AddDbContext<DataContext>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<DataContext>()
                 .AddDefaultTokenProviders();
@@ -44,6 +45,9 @@ namespace coreauthtest
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
+                //options.Tokens = new TokenOptions(){
+                //    AuthenticatorTokenProvider = 
+                //}
             });
         }
 
@@ -64,7 +68,6 @@ namespace coreauthtest
             }
 
             app.UseStaticFiles();
-            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
