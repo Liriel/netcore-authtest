@@ -35,7 +35,7 @@ namespace coreauthtest
             // Add framework services.
             services.AddMvc();
             services.AddEntityFrameworkSqlite().AddDbContext<DataContext>();
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<DataContext>()
                 .AddTokenProvider<TotpAuthTokenProvider>(nameof(TotpAuthTokenProvider));
 

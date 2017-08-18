@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 namespace coreauthtest.Model{
     public class ApplicationUser : IdentityUser{
 
-        public bool IsGoogleAuthenticatorEnabled { get; set; }
+        public bool IsTotpEnabled { get; set; }
 
-        public string GoogleAuthenticatorSecretKey { get; set; }
+        public string ToptSecretKey { get; set; }
     }
 }

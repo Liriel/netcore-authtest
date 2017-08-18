@@ -31,6 +31,7 @@ namespace coreauthtest.Migrations
                     ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsTotpEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
                     LockoutEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
                     NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -39,6 +40,7 @@ namespace coreauthtest.Migrations
                     PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
                     SecurityStamp = table.Column<string>(type: "TEXT", nullable: true),
+                    ToptSecretKey = table.Column<string>(type: "TEXT", nullable: true),
                     TwoFactorEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true)
                 },
